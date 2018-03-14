@@ -60,7 +60,7 @@ public class Results extends AppCompatActivity implements Serializable {
             itemRecipe = items.get(position).getRecipeobj();
             String name = itemRecipe.getName();
             String theIngredients = "";
-            holder.name.setText(name);
+            holder.recipeName.setText(name);
 
             String iconUrl = itemRecipe.getImg();
             Picasso.with(context).load(iconUrl).into(holder.image_recipe);
@@ -82,14 +82,14 @@ public class Results extends AppCompatActivity implements Serializable {
         public class ViewHolder extends RecyclerView.ViewHolder implements RecyclerView.OnClickListener {
             private clickListener clickListener;
             ImageView image_recipe;
-            TextView name;
+            TextView recipeName;
             TextView ingredientName;
 
             public ViewHolder(View itemView) {
                 super(itemView);
                 itemView.setOnClickListener(this);
                 image_recipe = itemView.findViewById(R.id.imageView);
-                name = itemView.findViewById(R.id.name);
+                recipeName = itemView.findViewById(R.id.name);
                 ingredientName = itemView.findViewById(R.id.ingredients);
 
             }
