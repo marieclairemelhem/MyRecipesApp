@@ -58,14 +58,14 @@ public class Results extends AppCompatActivity implements Serializable {
         @Override
         public void onBindViewHolder(ViewHolder holder, int position) {
             Context context = holder.itemView.getContext();
-            RecipesItem itemrecipe = items.get(position).getRecipeobj();
-            String name = itemrecipe.getName();
+            RecipesItem itemRecipe = items.get(position).getRecipeobj();
+            String name = itemRecipe.getName();
             String theIngredients="";
             holder.name.setText(name);
 
-            String iconUrl = itemrecipe.getImg() ;
+            String iconUrl = itemRecipe.getImg() ;
             Picasso.with(context).load(iconUrl).into(holder.image_recipe);
-            List<Ingredients> ingredientlist = itemrecipe.getIngredientslist();
+            List<Ingredients> ingredientlist = itemRecipe.getIngredientslist();
             if (ingredientlist != null && !ingredientlist.isEmpty()) {
                 for (int i=0;i<ingredientlist.size();i++) {
                     String ingredient_name = ingredientlist.get(i).getIngredientname();
