@@ -7,9 +7,9 @@ import java.io.Serializable;
 
 public class Recipe implements Serializable{
  @SerializedName("recipe")
-    private RecipesItem recipeobj;
+    private RecipesItem recipeObject;
 
  public RecipesItem getRecipeobj (){
-     return recipeobj;
+     return recipeObject;
  }
 }

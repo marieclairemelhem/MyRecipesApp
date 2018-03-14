@@ -8,14 +8,14 @@ import java.io.Serializable;
 public class Ingredients implements Serializable{
 
     @SerializedName("text")
-    private String ingredientname;
+    private String ingredientName;
 
     @SerializedName("weight")
     private double ingredientweight;
 
      public String getIngredientname()
      {
-         return ingredientname;
+         return ingredientName;
      }
      public Double getIngredientweight(){
          return ingredientweight;

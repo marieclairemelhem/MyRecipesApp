@@ -17,7 +17,7 @@ public class RecipesItem implements Serializable{
     private String url;
 
     @SerializedName("ingredients")
-    private List<Ingredients> ingredientslist;
+    private List<Ingredients> ingredientsList;
 
 
     public String getName(){
@@ -26,8 +26,8 @@ public class RecipesItem implements Serializable{
     public String getImg(){
         return img;
     }
-    public List<Ingredients> getIngredientslist(){
-        return ingredientslist;
+    public List<Ingredients> getIngredientsList(){
+        return ingredientsList;
 
     }
     public String getUrl(){

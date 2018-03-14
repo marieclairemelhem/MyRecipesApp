@@ -11,16 +11,16 @@ public class SearchRecipes implements Serializable {
     private  int count;
 
     @SerializedName("hits")
-    private List<Recipe> recipe;
+    private List<Recipe> matchingRecipes;
 
 
 
-public Integer getcount(){
+public Integer getCount(){
     return count;
 
 }
 public List<Recipe> getRecipe(){
-    return recipe;
+    return matchingRecipes;
 }
 
 
