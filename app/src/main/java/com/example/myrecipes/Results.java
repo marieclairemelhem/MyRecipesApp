@@ -63,12 +63,13 @@ public class Results extends AppCompatActivity implements Serializable {
             holder.recipeName.setText(name);
 
             String iconUrl = itemRecipe.getImg();
-            Picasso.with(context).load(iconUrl).into(holder.image_recipe);
+            Picasso.get().load(iconUrl).into(holder.image_recipe);
             List<Ingredients> ingredientlist = itemRecipe.getIngredientsList();
             if (ingredientlist != null && !ingredientlist.isEmpty()) {
                 for (int i = 0; i < ingredientlist.size(); i++) {
                     String ingredient_name = ingredientlist.get(i).getIngredientname();
                     theIngredients += ingredient_name + ",";
+
                 }
                 holder.ingredientName.setText(theIngredients);
             }
@@ -84,19 +85,23 @@ public class Results extends AppCompatActivity implements Serializable {
             ImageView image_recipe;
             TextView recipeName;
             TextView ingredientName;
+             TextView toSave;
 
             public ViewHolder(View itemView) {
                 super(itemView);
-                itemView.setOnClickListener(this);
+
                 image_recipe = itemView.findViewById(R.id.imageView);
+                image_recipe.setOnClickListener(this);
                 recipeName = itemView.findViewById(R.id.name);
                 ingredientName = itemView.findViewById(R.id.ingredients);
-
+                toSave=itemView.findViewById(R.id.Save);
+                toSave.setOnClickListener(this);
             }
 
 
             @Override
             public void onClick(View v) {
+
                 Intent newIntent = new Intent(Intent.ACTION_VIEW).setData(Uri.parse(itemRecipe.getUrl()));
                 v.getContext().startActivity(newIntent);
             }
