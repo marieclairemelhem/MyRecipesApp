@@ -1,8 +1,11 @@
 package com.example.myrecipes;
 
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -12,7 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-
+import android.app.DialogFragment;
 import com.example.myrecipes.models.Ingredients;
 import com.example.myrecipes.models.Recipe;
 import com.example.myrecipes.models.RecipesItem;
@@ -22,7 +25,7 @@ import com.squareup.picasso.Picasso;
 import java.io.Serializable;
 import java.util.List;
 
-public class Results extends AppCompatActivity implements Serializable {
+public class Results extends AppCompatActivity  implements Serializable   {
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
     private List<Recipe> recipesList;
@@ -101,12 +104,24 @@ public class Results extends AppCompatActivity implements Serializable {
 
             @Override
             public void onClick(View v) {
+if(v.getId()==R.id.imageView) {
+    Intent newIntent = new Intent(Intent.ACTION_VIEW).setData(Uri.parse(itemRecipe.getUrl()));
+    v.getContext().startActivity(newIntent);
+}else if(v.getId()==R.id.Save){
+    android.app.FragmentManager manager = getFragmentManager();
+    android.app.Fragment frag = manager.findFragmentByTag("fragment_edit_name");
+    if (frag != null) {
+        manager.beginTransaction().remove(frag).commit();
+    }
 
-                Intent newIntent = new Intent(Intent.ACTION_VIEW).setData(Uri.parse(itemRecipe.getUrl()));
-                v.getContext().startActivity(newIntent);
+    DialogBox loginBox = new DialogBox();
+    loginBox.show(manager, "fragment_edit_name");
+}
+
+}
             }
         }
 
     }
 
-}
+
