@@ -1,4 +1,4 @@
-package com.example.myrecipes;
+package com.example.myrecipes.screens;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,6 +9,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 
+import com.example.myrecipes.R;
 import com.example.myrecipes.api.ApiManager;
 import com.example.myrecipes.models.Recipe;
 import com.google.gson.Gson;

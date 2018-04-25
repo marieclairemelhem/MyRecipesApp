@@ -11,26 +11,26 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".screens.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Results"
+        <activity android:name=".screens.Results"
 
-            android:parentActivityName="com.example.myrecipes.MainActivity">
+            android:parentActivityName="com.example.myrecipes.screens.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity"/>
+                android:value=".screens.MainActivity"/>
         </activity>
-        <activity android:name=".RecipeChosen"
+        <activity android:name=".screens.authentication.LoginActivity"
 
-            android:parentActivityName="com.example.myrecipes.Results">
+            android:parentActivityName="com.example.myrecipes.screens.Results">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Results"/>
+                android:value=".screens.Results"/>
         </activity>
 
     </application>

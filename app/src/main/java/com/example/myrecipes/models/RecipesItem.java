@@ -17,6 +17,7 @@ public class RecipesItem implements Serializable{
     private String url;
 
     @SerializedName("ingredients")
+
     private List<Ingredients> ingredientsList;
 
 

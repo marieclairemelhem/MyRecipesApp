@@ -1,4 +1,4 @@
-package com.example.myrecipes;
+package com.example.myrecipes.screens;
 
 
 import android.view.View;

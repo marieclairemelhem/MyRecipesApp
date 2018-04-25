@@ -1,11 +1,8 @@
-package com.example.myrecipes;
+package com.example.myrecipes.screens;
 
-import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -15,11 +12,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.app.DialogFragment;
+
+import com.example.myrecipes.R;
+import com.example.myrecipes.screens.clickListener;
 import com.example.myrecipes.models.Ingredients;
 import com.example.myrecipes.models.Recipe;
 import com.example.myrecipes.models.RecipesItem;
-import com.example.myrecipes.models.SearchRecipes;
+import com.example.myrecipes.screens.DialogBox;
 import com.squareup.picasso.Picasso;
 
 import java.io.Serializable;
@@ -84,7 +83,7 @@ public class Results extends AppCompatActivity  implements Serializable   {
         }
 
         public class ViewHolder extends RecyclerView.ViewHolder implements RecyclerView.OnClickListener {
-            private clickListener clickListener;
+            private com.example.myrecipes.screens.clickListener clickListener;
             ImageView image_recipe;
             TextView recipeName;
             TextView ingredientName;
