@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 
 import com.example.myrecipes.R;
-import com.example.myrecipes.api.ApiManager;
+import com.example.myrecipes.RecipesApi.ApiManager;
 import com.example.myrecipes.models.Recipe;
 import com.google.gson.Gson;
 import com.example.myrecipes.models.SearchRecipes;

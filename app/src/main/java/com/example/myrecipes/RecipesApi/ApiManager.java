@@ -1,4 +1,4 @@
-package com.example.myrecipes.api;
+package com.example.myrecipes.RecipesApi;
 
 import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;

@@ -14,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.myrecipes.R;
+import com.example.myrecipes.localstorage.LocalStorageManager;
 import com.example.myrecipes.screens.clickListener;
 import com.example.myrecipes.models.Ingredients;
 import com.example.myrecipes.models.Recipe;
@@ -28,12 +29,14 @@ public class Results extends AppCompatActivity  implements Serializable   {
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
     private List<Recipe> recipesList;
-
+  private LocalStorageManager localStorageManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_results);
         Intent getintent = getIntent();
+        localStorageManager = LocalStorageManager.getInstance(getApplicationContext());
+
         recipesList = (List<Recipe>) getintent.getSerializableExtra("Recipes");
         recyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -106,17 +109,22 @@ public class Results extends AppCompatActivity  implements Serializable   {
 if(v.getId()==R.id.imageView) {
     Intent newIntent = new Intent(Intent.ACTION_VIEW).setData(Uri.parse(itemRecipe.getUrl()));
     v.getContext().startActivity(newIntent);
-}else if(v.getId()==R.id.Save){
-    android.app.FragmentManager manager = getFragmentManager();
-    android.app.Fragment frag = manager.findFragmentByTag("fragment_edit_name");
-    if (frag != null) {
-        manager.beginTransaction().remove(frag).commit();
+}else if(v.getId()==R.id.Save) {
+    if (localStorageManager.getUser() == null) {
+        android.app.FragmentManager manager = getFragmentManager();
+        android.app.Fragment frag = manager.findFragmentByTag("fragment_edit_name");
+        if (frag != null) {
+            manager.beginTransaction().remove(frag).commit();
+        }
+
+        DialogBox loginBox = new DialogBox();
+        loginBox.show(manager, "fragment_edit_name");
     }
+    else {
+        //save to db//
 
-    DialogBox loginBox = new DialogBox();
-    loginBox.show(manager, "fragment_edit_name");
+    }
 }
-
 }
             }
         }

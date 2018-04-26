@@ -10,7 +10,7 @@
     <string name="hint_password">password</string>
     <string name="btn_login">Login</string>
     <string name="btn_submit">Submit</string>
-
+    <string name="logo">logo</string>
     <string name="text_register">Register?</string>
     <string name="register_btn">Register</string>
 
@@ -22,5 +22,4 @@
     <string name="title_events">Events</string>
     <string name="title_create_event">Create Event</string>
     <string name="title_profile">Profile</string>
-
 </resources>
