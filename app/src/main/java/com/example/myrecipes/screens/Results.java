@@ -143,7 +143,7 @@ public class Results extends AppCompatActivity implements Serializable {
                                } else {
                                    try {
                                        String errorJson = response.errorBody().string();
-                                       Log.d("error ","error "+ errorJson);
+
                                      /*  ApiError apiError = parseApiErrorString(errorJson);
                                        actBasedOnApiErrorCode(apiError);*/
                                    } catch (IOException e) {
