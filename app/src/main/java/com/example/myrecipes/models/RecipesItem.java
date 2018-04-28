@@ -13,12 +13,19 @@ public class RecipesItem implements Serializable{
 
     @SerializedName("image")
     private String img;
+
+    @SerializedName("ingredients")
+    private List<Ingredients> ingredientsList;
+
     @SerializedName("url")
     private String url;
 
-    @SerializedName("ingredients")
-
-    private List<Ingredients> ingredientsList;
+    public RecipesItem(String name, List<Ingredients> ingredientsList, String img , String url) {
+        this.label=name;
+        this.img=img;
+        this.ingredientsList=ingredientsList;
+        this.url=url;
+    }
 
 
     public String getName(){

@@ -11,10 +11,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".screens.MainActivity"/>
+        <activity
+            android:name=".screens.MenuActivity"
+            android:label="@string/title_activity_menu"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".screens.MainActivity"
+            android:label="@string/title_activity_main"
+            android:theme="@style/AppTheme" />
 
-        <activity android:name=".screens.auth.AuthenticationActivity">
-
+        <activity
+            android:name=".screens.splash.SplashActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -22,6 +30,13 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".screens.auth.AuthenticationActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
 
         <activity android:name=".screens.Results"

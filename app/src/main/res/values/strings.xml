@@ -20,6 +20,8 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="title_events">Events</string>
+
     <string name="title_create_event">Create Event</string>
     <string name="title_profile">Profile</string>
+    <string name="title_activity_menu">Menu</string>
 </resources>
