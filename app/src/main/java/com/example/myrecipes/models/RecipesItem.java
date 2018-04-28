@@ -7,6 +7,8 @@ import java.io.Serializable;
 import java.util.List;
 
 public class RecipesItem implements Serializable{
+    @SerializedName("_id")
+    private String id;
 
     @SerializedName("label")
     private String label;
@@ -27,6 +29,13 @@ public class RecipesItem implements Serializable{
         this.url=url;
     }
 
+    public RecipesItem(String img) {
+        this.img=img;
+    }
+
+    public String getId() {
+        return id;
+    }
 
     public String getName(){
         return label;

@@ -46,7 +46,7 @@ public class Results extends AppCompatActivity implements Serializable {
         setContentView(R.layout.activity_results);
         Intent getintent = getIntent();
         localStorageManager = LocalStorageManager.getInstance(getApplicationContext());
-        authenticatedApiManager = AuthenticatedApiManager.getInstance(getApplicationContext());
+
         recipesList = (List<Recipe>) getintent.getSerializableExtra("Recipes");
         recyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -132,9 +132,8 @@ public class Results extends AppCompatActivity implements Serializable {
                         DialogBox loginBox = new DialogBox();
                         loginBox.show(manager, "fragment_edit_name");
                     } else {
-
+                        authenticatedApiManager = AuthenticatedApiManager.getInstance(getApplicationContext());
                         RecipesItem recipe = new RecipesItem(itemRecipe.getImg(),itemRecipe.getIngredientsList(),itemRecipe.getName(),itemRecipe.getUrl());
-
                        authenticatedApiManager.addRecipes(recipe).enqueue(new Callback<List<RecipesItem>>() {
                            @Override
                            public void onResponse(Call<List<RecipesItem>> call, Response<List<RecipesItem>> response) {
@@ -144,8 +143,6 @@ public class Results extends AppCompatActivity implements Serializable {
                                    try {
                                        String errorJson = response.errorBody().string();
 
-                                     /*  ApiError apiError = parseApiErrorString(errorJson);
-                                       actBasedOnApiErrorCode(apiError);*/
                                    } catch (IOException e) {
                                        e.printStackTrace();
                                    }

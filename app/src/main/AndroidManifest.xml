@@ -16,7 +16,7 @@
             android:label="@string/title_activity_menu"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".screens.MainActivity"
+            android:name=".screens.splash.menuItems.MainActivity"
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme" />
 
@@ -41,10 +41,10 @@
 
         <activity android:name=".screens.Results"
 
-            android:parentActivityName="com.example.myrecipes.screens.MainActivity">
+            android:parentActivityName="com.example.myrecipes.screens.splash.menuItems.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".screens.MainActivity"/>
+                android:value=".screens.splash.menuItems.MainActivity"/>
         </activity>
 
 

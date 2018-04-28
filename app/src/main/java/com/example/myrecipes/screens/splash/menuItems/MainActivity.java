@@ -1,4 +1,4 @@
-package com.example.myrecipes.screens;
+package com.example.myrecipes.screens.splash.menuItems;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,6 +12,7 @@ import android.widget.ProgressBar;
 import com.example.myrecipes.R;
 import com.example.myrecipes.RecipesApi.ApiManager;
 import com.example.myrecipes.models.Recipe;
+import com.example.myrecipes.screens.Results;
 import com.google.gson.Gson;
 import com.example.myrecipes.models.SearchRecipes;
 
