@@ -22,7 +22,7 @@ public class RecipesItem implements Serializable{
     @SerializedName("url")
     private String url;
 
-    public RecipesItem(String name, List<Ingredients> ingredientsList, String img , String url) {
+    public RecipesItem(String img, List<Ingredients> ingredientsList,String name  , String url) {
         this.label=name;
         this.img=img;
         this.ingredientsList=ingredientsList;

@@ -107,12 +107,13 @@ public class Results extends AppCompatActivity implements Serializable {
             Button toSave;
 
             public ViewHolder(View itemView) {
+
                 super(itemView);
 
                 image_recipe = itemView.findViewById(R.id.imageView);
                 image_recipe.setOnClickListener(this);
                 recipeName = itemView.findViewById(R.id.name);
-                ingredientName = itemView.findViewById(R.id.ingredients);
+                ingredientName = itemView.findViewById(R.id.url);
                 toSave = itemView.findViewById(R.id.Save);
                 toSave.setOnClickListener(this);
             }
@@ -135,12 +136,14 @@ public class Results extends AppCompatActivity implements Serializable {
                         loginBox.show(manager, "fragment_edit_name");
                     } else {
                         authenticatedApiManager = AuthenticatedApiManager.getInstance(getApplicationContext());
-                        RecipesItem recipe = new RecipesItem(itemRecipe.getImg(),itemRecipe.getIngredientsList(),itemRecipe.getName(),itemRecipe.getUrl());
-                        authenticatedApiManager.addRecipes(recipe).enqueue(new Callback<List<RecipesItem>>() {
+
+                        authenticatedApiManager.addRecipes(itemRecipe).enqueue(new Callback<List<RecipesItem>>() {
                             @Override
                             public void onResponse(Call<List<RecipesItem>> call, Response<List<RecipesItem>> response) {
                                 if (response.isSuccessful()) {
-                                     toSave.setText("SAVED");
+
+                                     toSave.setText("saved");
+                                    toSave.setVisibility(View.GONE);
                                 } else {
                                     try {
                                         String errorJson = response.errorBody().string();
