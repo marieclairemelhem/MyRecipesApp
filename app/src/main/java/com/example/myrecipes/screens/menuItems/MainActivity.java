@@ -1,4 +1,4 @@
-package com.example.myrecipes.screens.splash.menuItems;
+package com.example.myrecipes.screens.menuItems;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -41,9 +41,11 @@ public class MainActivity extends AppCompatActivity implements Serializable {
         ingredientInput = findViewById(R.id.ingredient_input);
         searchImageView = findViewById(R.id.searchView);
         progressBar = findViewById(R.id.progressBar);
+
         searchImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 SearchRecipe();
             }
         });
@@ -52,11 +54,12 @@ public class MainActivity extends AppCompatActivity implements Serializable {
     private void SearchRecipe() {
 
         String currentText = ingredientInput.getText().toString();
+        showProgressBar();
         if (!TextUtils.isEmpty(currentText)) {
             recipeManager.getRecipes(currentText).enqueue(new Callback() {
                 @Override
                 public void onFailure(Call call, IOException e) {
-                    //hideProgressBar();
+                    hideProgressBar();
                 }
 
                 @Override
@@ -74,6 +77,13 @@ public class MainActivity extends AppCompatActivity implements Serializable {
                 }
             });
         }
+    }
+
+    private void hideProgressBar() {
+        progressBar.setVisibility(ProgressBar.INVISIBLE);
+    }
+    private void showProgressBar() {
+        progressBar.setVisibility(ProgressBar.VISIBLE);
     }
 
 

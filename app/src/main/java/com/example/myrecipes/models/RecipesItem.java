@@ -34,7 +34,7 @@ public class RecipesItem implements Serializable{
     }
 
     public String getId() {
-        return id;
+        return this.id=id;
     }
 
     public String getName(){

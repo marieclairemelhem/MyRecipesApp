@@ -7,30 +7,33 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.TextView;
+        import android.widget.TextView;
 
-import com.example.myrecipes.Backend.authenticated.AuthenticatedApiManager;
-import com.example.myrecipes.Backend.authentication.AuthenticationApiManager;
-import com.example.myrecipes.R;
-import com.example.myrecipes.localstorage.LocalStorageManager;
-import com.example.myrecipes.models.ApiError;
-import com.example.myrecipes.models.Ingredients;
-import com.example.myrecipes.models.Recipe;
-import com.example.myrecipes.models.RecipesItem;
-import com.squareup.picasso.Picasso;
+        import com.example.myrecipes.Backend.authenticated.AuthenticatedApiManager;
 
-import java.io.IOException;
-import java.io.Serializable;
-import java.util.List;
+        import com.example.myrecipes.R;
+        import com.example.myrecipes.localstorage.LocalStorageManager;
+
+        import com.example.myrecipes.models.Ingredients;
+        import com.example.myrecipes.models.Recipe;
+        import com.example.myrecipes.models.RecipesItem;
+        import com.squareup.picasso.Picasso;
+
+        import java.io.IOException;
+        import java.io.Serializable;
+        import java.util.List;
 
 import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
+        import retrofit2.Callback;
+        import retrofit2.Response;
+
+
 
 public class Results extends AppCompatActivity implements Serializable {
     private RecyclerView recyclerView;
@@ -38,7 +41,6 @@ public class Results extends AppCompatActivity implements Serializable {
     private List<Recipe> recipesList;
     private LocalStorageManager localStorageManager;
     private AuthenticatedApiManager authenticatedApiManager;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -102,7 +104,7 @@ public class Results extends AppCompatActivity implements Serializable {
             ImageView image_recipe;
             TextView recipeName;
             TextView ingredientName;
-            TextView toSave;
+            Button toSave;
 
             public ViewHolder(View itemView) {
                 super(itemView);
@@ -134,26 +136,26 @@ public class Results extends AppCompatActivity implements Serializable {
                     } else {
                         authenticatedApiManager = AuthenticatedApiManager.getInstance(getApplicationContext());
                         RecipesItem recipe = new RecipesItem(itemRecipe.getImg(),itemRecipe.getIngredientsList(),itemRecipe.getName(),itemRecipe.getUrl());
-                       authenticatedApiManager.addRecipes(recipe).enqueue(new Callback<List<RecipesItem>>() {
-                           @Override
-                           public void onResponse(Call<List<RecipesItem>> call, Response<List<RecipesItem>> response) {
-                               if (response.isSuccessful()) {
+                        authenticatedApiManager.addRecipes(recipe).enqueue(new Callback<List<RecipesItem>>() {
+                            @Override
+                            public void onResponse(Call<List<RecipesItem>> call, Response<List<RecipesItem>> response) {
+                                if (response.isSuccessful()) {
+                                     toSave.setText("SAVED");
+                                } else {
+                                    try {
+                                        String errorJson = response.errorBody().string();
 
-                               } else {
-                                   try {
-                                       String errorJson = response.errorBody().string();
+                                    } catch (IOException e) {
+                                        e.printStackTrace();
+                                    }
+                                }
+                            }
 
-                                   } catch (IOException e) {
-                                       e.printStackTrace();
-                                   }
-                               }
-                           }
+                            @Override
+                            public void onFailure(Call<List<RecipesItem>> call, Throwable t) {
 
-                           @Override
-                           public void onFailure(Call<List<RecipesItem>> call, Throwable t) {
-
-                           }
-                       });
+                            }
+                        });
 
 
                     }
@@ -163,5 +165,3 @@ public class Results extends AppCompatActivity implements Serializable {
     }
 
 }
-
-
