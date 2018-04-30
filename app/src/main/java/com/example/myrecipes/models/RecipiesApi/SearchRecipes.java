@@ -1,5 +1,6 @@
-package com.example.myrecipes.models;
+package com.example.myrecipes.models.RecipiesApi;
 
+import com.example.myrecipes.models.RecipiesApi.Recipe;
 import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;

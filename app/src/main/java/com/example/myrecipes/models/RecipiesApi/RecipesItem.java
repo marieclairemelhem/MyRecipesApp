@@ -1,4 +1,4 @@
-package com.example.myrecipes.models;
+package com.example.myrecipes.models.RecipiesApi;
 
 
 import com.google.gson.annotations.SerializedName;

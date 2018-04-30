@@ -11,10 +11,10 @@ import android.widget.ProgressBar;
 
 import com.example.myrecipes.R;
 import com.example.myrecipes.RecipesApi.ApiManager;
-import com.example.myrecipes.models.Recipe;
+import com.example.myrecipes.models.RecipiesApi.Recipe;
 import com.example.myrecipes.screens.Results;
 import com.google.gson.Gson;
-import com.example.myrecipes.models.SearchRecipes;
+import com.example.myrecipes.models.RecipiesApi.SearchRecipes;
 
 import java.io.IOException;
 import java.io.Serializable;

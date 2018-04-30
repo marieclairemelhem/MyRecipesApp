@@ -13,17 +13,18 @@ import android.view.ViewGroup;
 
 import android.widget.Button;
 import android.widget.ImageView;
-        import android.widget.TextView;
+import android.widget.TextView;
 
         import com.example.myrecipes.Backend.authenticated.AuthenticatedApiManager;
 
         import com.example.myrecipes.R;
         import com.example.myrecipes.localstorage.LocalStorageManager;
 
-        import com.example.myrecipes.models.Ingredients;
-        import com.example.myrecipes.models.Recipe;
-        import com.example.myrecipes.models.RecipesItem;
-        import com.squareup.picasso.Picasso;
+        import com.example.myrecipes.models.RecipiesApi.Ingredients;
+        import com.example.myrecipes.models.RecipiesApi.Recipe;
+        import com.example.myrecipes.models.RecipiesApi.RecipesItem;
+import com.example.myrecipes.screens.menuItems.DialogBox;
+import com.squareup.picasso.Picasso;
 
         import java.io.IOException;
         import java.io.Serializable;
@@ -142,7 +143,7 @@ public class Results extends AppCompatActivity implements Serializable {
                             public void onResponse(Call<List<RecipesItem>> call, Response<List<RecipesItem>> response) {
                                 if (response.isSuccessful()) {
 
-                                     toSave.setText("saved");
+                                    toSave.setText("saved");
                                     toSave.setVisibility(View.GONE);
                                 } else {
                                     try {
@@ -158,6 +159,8 @@ public class Results extends AppCompatActivity implements Serializable {
                             public void onFailure(Call<List<RecipesItem>> call, Throwable t) {
 
                             }
+
+
                         });
 
 
@@ -166,5 +169,4 @@ public class Results extends AppCompatActivity implements Serializable {
             }
         }
     }
-
 }
