@@ -145,6 +145,7 @@ public class Results extends AppCompatActivity implements Serializable {
 
                                     toSave.setText("saved");
                                     toSave.setVisibility(View.GONE);
+
                                 } else {
                                     try {
                                         String errorJson = response.errorBody().string();

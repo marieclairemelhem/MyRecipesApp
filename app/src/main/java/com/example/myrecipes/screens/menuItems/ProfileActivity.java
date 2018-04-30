@@ -192,6 +192,7 @@ public class ProfileActivity extends AppCompatActivity {
                 items.remove(position);
                 notifyItemRemoved(position);
                 notifyItemRangeChanged(position, items.size());
+                notifyDataSetChanged();
             }
         }
 
