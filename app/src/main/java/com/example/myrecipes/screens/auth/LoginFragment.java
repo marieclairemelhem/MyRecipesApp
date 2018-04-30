@@ -136,7 +136,7 @@ public class LoginFragment extends BaseFragment {
                     hideProgressBar();
                     if (response.isSuccessful()) {
                         User apiUser = response.body();
-                        Log.d("sapiusrr","apiuser"+localStorageManager );
+
                         localStorageManager.saveUser(apiUser);
 
                         listener.onLoginSuccess();
